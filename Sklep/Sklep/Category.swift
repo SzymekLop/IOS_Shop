@@ -25,7 +25,7 @@ var superCategories = [
     Category(name: "Garden", image: "garden")]
     
 var subCategories = [
-    Category(name: "Chairs", image: "kitchen_chari"),
+    Category(name: "Chairs", image: "kitchen_chair"),
     Category(name: "Tables", image: "table"),
     Category(name: "Cupboards", image: "cupboard"),
     Category(name: "Sofas", image: "sofa"),

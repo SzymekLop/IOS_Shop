@@ -14,8 +14,7 @@ struct CategoryView: View {
     @EnvironmentObject var cartManager: CartManager
     
     var body: some View {
-        var list = products.filter{$0.subCategory.name == category.name}
-        list = list..filter{$0.category.name == superCategory.name}
+        var list = products.filter{$0.subCategory?.name == category.name}
             ScrollView{
                 VStack{
                     Image(category.image)
@@ -34,9 +33,8 @@ struct CategoryView: View {
                                     NavigationLink(
                                         destination: ProductView(product: list[index])
                                             .environmentObject(cartManager),
-                                        isActive: self.$isActive,
                                         label: {
-                                            ProductCard(product: list[index], size: 180)
+                                            ProductCard(image: list[index].image, product: list[index], size: 180)
                                                 .environmentObject(cartManager)
                                         })
                                     .foregroundColor(.black)
@@ -48,16 +46,12 @@ struct CategoryView: View {
                         }
                     }
                 }
-                .isDetailLink(false)
                 .toolbar {
                     NavigationLink {
                         CartView()
                             .environmentObject(cartManager)
                     } label: {
-                        CartButton(numberOfProducts: cartManager.products.count)
-                    },
-                    Button (action: { self.shouldPopToRootView = false } ){
-                    Image(systemName: "house")
+                        CartButton(numberOfProducts: cartManager.products.count, price: cartManager.total)
                     }
                 }
         }

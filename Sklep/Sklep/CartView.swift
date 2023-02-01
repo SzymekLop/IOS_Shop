@@ -19,7 +19,7 @@ struct CartView: View {
                 HStack {
                     Text("Your cart total is")
                     Spacer()
-                    Text("$\(cartManager.total).00")
+                    Text("$\(String(format: "%.2f",cartManager.total)) $")
                         .bold()
                 }
                 .padding()

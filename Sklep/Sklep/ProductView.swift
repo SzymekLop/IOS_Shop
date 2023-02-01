@@ -21,7 +21,7 @@ struct ProductView: View{
                 Button {
                     cartManager.addToCart(product: product)
                 } label: {
-                    Text(Add to cart)
+                    Text("Add to cart")
                         .foregroundColor(.white)
                 }
                     .buttonStyle(.bordered)
@@ -32,7 +32,7 @@ struct ProductView: View{
                     Text(String(product.price))
                         .font(.custom("Monospace", size: 24))
                     Spacer()
-                    Text(produc.desc)
+                    Text(product.desc)
                 }
                 .navigationTitle(Text(product.name))
             }
@@ -43,7 +43,7 @@ struct ProductView: View{
                 CartView()
                     .environmentObject(cartManager)
             } label: {
-                CartButton(numberOfProducts: cartManager.products.count)
+                CartButton(numberOfProducts: cartManager.products.count, price: cartManager.total)
             }
         }
     }

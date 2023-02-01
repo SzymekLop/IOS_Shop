@@ -9,8 +9,7 @@ struct CategoryCard: View {
         VStack {
             Image(category.image)
                 .resizable()
-                .frame(width: CGFloat(size), height: CGFloat(200 * (size/210)))
-                .cornerRadius(20.0)
+                .aspectRatio(contentMode: .fill)
             Text(category.name)
                 .font(.title3)
                 .fontWeight(.bold)

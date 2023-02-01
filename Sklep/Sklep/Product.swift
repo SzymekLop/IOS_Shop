@@ -32,15 +32,19 @@ class Product: ObservableObject, Hashable, Equatable, Identifiable {
         self.price = price
         self.desc = desc
     }
+    
+    func getImge() -> String{
+        return self.image
+    }
 }
 
 var products = [
-        Product(name: "Wooden Chair", image: "restaurant", price: 55.99, category: superCategories[1], subCategory: subCategories[0]),
-        Product(name: "Cosy Chair", image: "cosychair", price: 135.99, category: superCategories[1], subCategory: subCategories[0]),
+        Product(name: "Wooden Chair", image: "kitchen_chair", price: 55.99, category: superCategories[1], subCategory: subCategories[0]),
+        Product(name: "Cosy Chair", image: "cosy_chair", price: 135.99, category: superCategories[1], subCategory: subCategories[0]),
         Product(name: "Boucle Chair", image: "boucle-chair", price: 95.99, category: superCategories[1], subCategory: subCategories[0]),
-        Product(name: "Office Chair", image: "office-chair", price: 75.99, category: superCategories[0], subCategory: subCategories[0]),
-        Product(name: "Big Chair", image: "garden-chair", price: 175.99, category: superCategories[4], subCategory: subCategories[0]),
-        Product(name: "Rosalia Chair", image: "rosalia-chair", price: 275.99, category: superCategories[1], subCategory: subCategories[0]),
+        Product(name: "Office Chair", image: "office_chair", price: 75.99, category: superCategories[0], subCategory: subCategories[0]),
+        Product(name: "Big Chair", image: "garden_chair", price: 175.99, category: superCategories[4], subCategory: subCategories[0]),
+        Product(name: "Rosalia Chair", image: "rosalina-chair", price: 275.99, category: superCategories[1], subCategory: subCategories[0]),
         Product(name: "Luxury Chair", image: "green_chair", price: 149.99, category: superCategories[1], subCategory: subCategories[0]),
         Product(name: "Round Table", image: "round-table", price: 95.99, category: superCategories[1], subCategory: subCategories[1]),
         Product(name: "Long Table", image: "table", price: 75.99, category: superCategories[1], subCategory: subCategories[1]),

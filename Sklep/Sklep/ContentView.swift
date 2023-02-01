@@ -20,9 +20,8 @@ struct ContentView: View {
                             CartView()
                                 .environmentObject(cartManager)
                         }
-                        .isActive(self.$isActive)
                         label: {
-                            CartButton(numberOfProducts: cartManager.products.count)
+                            CartButton(numberOfProducts: cartManager.products.count, price: cartManager.total)
                         }
                     }
                         .font(.title)
@@ -53,9 +52,10 @@ struct ContentView: View {
                         HStack (spacing: 0) {
                             ForEach(0 ..< 4) { i in
                                 NavigationLink(
-                                    destination: ProductView(product: products[i]),
+                                    destination: ProductView(product: products[i])
+                                    .environmentObject(cartManager),
                                     label: {
-                                        ProductCard(product: products[i], size: 180)
+                                        ProductCard(image: products[i].image, product: products[i], size: 180)
                                 })
                                 .navigationBarHidden(true)
                                 .foregroundColor(.black)
@@ -66,13 +66,12 @@ struct ContentView: View {
                 }
             }
             .navigationTitle(Text("Furniture Shop"))
-            .isDetailLink(false)
             .toolbar {
                 NavigationLink {
                     CartView()
                         .environmentObject(cartManager)
                 } label: {
-                    CartButton(numberOfProducts: cartManager.products.count)
+                    CartButton(numberOfProducts: cartManager.products.count, price: cartManager.total)
                 }
             }
         }

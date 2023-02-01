@@ -30,7 +30,6 @@ struct CategoriesView: View {
                                     NavigationLink(
                                         destination: CategoryView(superCategory: category, category: subCategories[index])
                                             .environmentObject(cartManager),
-                                        isActive: self.$isActive,
                                         label: {
                                             CategoryCard(category: subCategories[index], size: 180)
                                                 .environmentObject(cartManager)
@@ -45,15 +44,11 @@ struct CategoriesView: View {
                     }
                 }
             }
-        .isDetailLink(false)
-        .navigationBarItems(trailing: NavigationLink {
-            CartView()
+            .navigationBarItems(trailing: NavigationLink {
+                CartView()
                 .environmentObject(cartManager)
-        } label: {
-            CartButton(numberOfProducts: cartManager.products.count)
-        },
-        Button (action: { self.shouldPopToRootView = false } ){
-        Image(systemName: "house")
+            } label: {
+                CartButton(numberOfProducts: cartManager.products.count, price: cartManager.total)
         })
     }
 }
